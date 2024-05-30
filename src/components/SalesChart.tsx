@@ -92,7 +92,7 @@ const SalesChart :React.FC=()=>{
           }}
         >
           <Chart axes={axes} data={prices}   />
-          <h1>Hello Love</h1>
+          <h1>Sales Price Chart</h1>
           
         </div>
       );

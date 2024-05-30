@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Sidebar from "./components/SideBar";
+import Details from "./components/Details";
+import SalesChart from "./components/SalesChart";
+import { data } from "./data";
+
 
 function App() {
+  const cardElements = data.map((item) => {
+    console.log(item.sales);
+    return (
+      <Details
+        key={item.id}
+      />
+    );
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="container">
+        <div className="productOverview">
+          <Sidebar />
+        </div>
+        <div className="productDetail">
+          <SalesChart />    
+          <section>{cardElements}</section>
+        </div>
+      </div>
     </div>
   );
 }
